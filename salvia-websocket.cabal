@@ -16,8 +16,8 @@ Library
 
   Build-Depends:    base ==4.*,
                     bytestring ==0.9.*,
-                    salvia ==0.3.*,
-                    salvia-protocol ==0.1.*,
+                    salvia ==1.0.*,
+                    salvia-protocol ==1.0.*,
                     fclabels ==0.4.*,
                     monads-fd ==0.0.*,
                     stm ==2.1.*,
