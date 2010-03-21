@@ -77,12 +77,12 @@ hOnMessage ms act = forever $
        Nothing -> return ()
        Just f  -> lift (act f)
 
-hSendTMVar :: (SendM m, MonadIO m, FlushM Response m, Eq a, Show a) => Int -> TMVar a -> m ()
-hSendTMVar ms var = loop Nothing
+hSendTMVar :: (SendM m, MonadIO m, FlushM Response m, Eq a) => Int -> TMVar a -> (a -> String) -> m ()
+hSendTMVar ms var f = loop Nothing
   where 
   loop prev =
     do cur <- liftIO $ (threadDelay (ms * 1000) >> atomically (readTMVar var))
-       when (Just cur /= prev) $ hSendFrame (show cur)
+       when (Just cur /= prev) $ hSendFrame (f cur)
        loop (Just cur)
 
 hOnMessageUpdateTMVar :: (HandleM m, MonadIO m) => Int -> (String -> a -> a) -> TMVar a -> WebSocketT m ()
