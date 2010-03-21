@@ -1,6 +1,7 @@
 {-# LANGUAGE FlexibleContexts, TypeOperators #-}
 module Network.Salvia.Handler.WebSocket
 ( Protocol
+, WebSocketT
 , wsOrigin
 , wsLocation
 , wsProtocol
