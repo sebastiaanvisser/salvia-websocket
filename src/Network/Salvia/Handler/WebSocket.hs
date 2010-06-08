@@ -18,7 +18,7 @@ where
 import Control.Concurrent
 import Control.Concurrent.STM
 import Control.Monad.State
-import Data.Record.Label hiding (get)
+import Data.Record.Label
 import Network.Protocol.Http hiding (NotFound)
 import Network.Salvia.Handlers
 import Network.Salvia.Interface
@@ -53,7 +53,7 @@ hRecvFrameNonBlocking :: (MonadIO m, HandleM m) => Int -> StateT U.ByteString m 
 hRecvFrameNonBlocking size =
   do prev <- get
      (frame, rest) <- lift $
-       do s <- handle
+       do s <- handleIn
           raw <- liftIO (B.hGetNonBlocking s size)
           let (first, rest) = B.break (== 0xFF) raw
           if not (B.null rest) && B.head rest == 0xFF
