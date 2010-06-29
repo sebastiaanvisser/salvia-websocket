@@ -19,7 +19,7 @@ Library
                     salvia ==1.2.*,
                     salvia-protocol ==1.1.*,
                     fclabels ==1.0.*,
-                    monads-fd ==0.0.*,
+                    monads-fd < 0.2,
                     stm ==2.1.*,
                     utf8-string ==0.3.*
 
