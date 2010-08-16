@@ -18,7 +18,7 @@ Library
                     bytestring ==0.9.*,
                     salvia ==1.2.*,
                     salvia-protocol ==1.1.*,
-                    fclabels ==1.0.*,
+                    fclabels ==0.9.*,
                     monads-fd < 0.2,
                     stm ==2.1.*,
                     utf8-string ==0.3.*
